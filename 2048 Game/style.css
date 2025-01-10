@@ -1,0 +1,123 @@
+body {
+    background-color: rgb(245, 238, 229);
+    font-family: 'Sen', sans-serif;
+    font-weight: 100;
+}
+
+.board {
+    width: 400px;
+    height: 400px;
+
+    background-color: #9c856e;
+    border: 8px solid #9c856e;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.board .board-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 90px;
+    height: 90px;
+    border: 2px  solid  rgb(187, 169, 146);
+    border-radius: 10px ;
+    background-color: rgb(187, 169, 146);
+
+    font-size: xx-large;
+    color: #6e5e4d;
+}
+
+
+.board .board-square-2 {
+    border: 2px  solid  #eeeae7;
+    background-color: #eeeae7;
+}
+
+.board .board-square-4 {
+    border: 2px  solid  #ece0ca;
+    background-color: #ece0ca;
+    
+}
+
+.board .board-square-8 {
+    border: 2px  solid  #f4b17a;
+    background-color: #f4b17a;
+}
+
+.board .board-square-16 {
+    border: 2px  solid  #f59575;
+    background-color: #f59575;
+}
+
+.board .board-square-32 {
+    border: 2px  solid  #f57c5f;
+    background-color: #f57c5f;
+}
+
+.board .board-square-64 {
+    border: 2px  solid  #f65d3b;
+    background-color: #f65d3b;
+}
+
+.board .board-square-128 {
+    border: 2px  solid  #edce71;
+    background-color: #edce71;
+}
+
+.board .board-square-258{
+    border: 2px solid #edcc63;;
+    background-color: #edcc63;
+}
+
+.board .board-square-512{
+    background-color: #edc651;
+    color: white;
+}
+
+.x1024{
+    background-color: #eec744;
+    color: white;
+}
+
+.x2048{
+    background-color: #ecc230;
+    color: white;
+}
+
+
+
+
+
+.scoreConteiner {
+    text-align: center;
+    font-size: x-large;
+    margin: 25px;
+}
+
+.instructions {
+    display: flex;
+    justify-content: start;
+    font-size:medium;
+}
+
+.titleGame {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    align-content: start;
+    font-weight:800;
+    font-size:36px;
+    font-family:fantasy;
+    letter-spacing: 2px;
+}
+
+.footer {
+    font-size: small;
+}
