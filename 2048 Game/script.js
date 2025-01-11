@@ -49,8 +49,8 @@ function updateSquare(boardSquare, newSquareNumber) {
 
 function updateScore(numberToAdd) {
     score += numberToAdd;
-    scoreElement = document.querySelector(".scoreConteiner");
-    scoreElement.innerText = `score: ${score}`;
+    scoreElement = document.querySelector(".score");
+    scoreElement.innerText = `${score}`;
 }
 
 function generateTwo() {
@@ -90,6 +90,8 @@ document.addEventListener("keyup", (e)=> {
         }
     }   
 });
+
+document.querySelector(".newGameButton").addEventListener("click", initializeGame);
 
 function rowsAreEquals(newRow, actualRow) {
     for (let i = 0; i < ROWS; i++) {
