@@ -8,9 +8,12 @@
     position: relative;
     margin: auto;
     padding-bottom: 50px;
+    transition: transform 0.5s ease, scale 0.5s ease;
   }
 
-  .board {
+
+
+.board {
     display: grid;
     grid-template-columns: repeat(4, 90px);
     grid-template-rows: repeat(4,90px);
@@ -93,3 +96,4 @@
     background-color: #ecc230;
     color: white;
 }
+

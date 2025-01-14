@@ -7,7 +7,24 @@ window.onload = function() {
     initializeGame();
 }
 
+function resetGame() {
+    document.addEventListener("keyup", control);
+    document.querySelector(".newGameButton").addEventListener("click", restartGame);
+    const overlay = document.querySelector('.overlayEndGame');
+    const scoreConteiner = document.querySelector('.scoreConteiner');
+    const massageGameOver = document.querySelector('.messageGameOver');
+    const newGameButton =  document.querySelector(".newGameButton");
+    const continuePlayingButton = document.querySelector(".continuePlayingButton");
+    overlay.classList.value = "overlayEndGame";
+    scoreConteiner.classList.value = "scoreConteiner";
+    massageGameOver.classList.value = "messageGameOver";
+    newGameButton.classList.value = "newGameButton";
+    newGameButton.innerText = "New Game";
+    continuePlayingButton.classList.value = "continuePlayingButton";
+}
+
 function initializeGame() {
+    resetGame();
     board = [
         [0,0,0,0], 
         [0,0,0,0], 
@@ -32,6 +49,7 @@ function initializeGame() {
 }
 
 function restartGame() {
+    score = 0;
     const boardElement = document.querySelector(".board");
     while (boardElement.firstChild) {
         boardElement.removeChild(boardElement.firstChild);
@@ -41,7 +59,7 @@ function restartGame() {
 
 function updateSquare(boardSquare, newSquareNumber) {
     boardSquare.innerText = "";
-    boardSquare.classList.value = ""; //reseteo el valor de la clase
+    boardSquare.classList.value = ""; 
     boardSquare.classList.add("board-square")
     if (newSquareNumber > 0) {
         if (newSquareNumber > 2048) {
@@ -78,7 +96,19 @@ function checkWin() {
     for (let row = 0; row < ROWS; row++) {
         for (let column = 0; column < COLUMNS; column++) { 
             if (board[row][column] === 2048) {
-                alert('Felicitaciones completaste el juego, puedes continuar jugando si asi lo deseas');
+                document.removeEventListener("keyup", control);
+                document.querySelector('.overlayEndGame').classList.add('active');
+                document.querySelector('.boardConteiner').classList.add('endGame');
+                document.querySelector('.scoreConteiner').classList.add('endGame');
+                const messageGameOver = document.querySelector('.messageGameOver');
+                messageGameOver.classList.add('active');
+                messageGameOver.innerText = "You win!";
+                const newGameButton = document.querySelector(".newGameButton");
+                newGameButton.classList.add('endGame');
+                newGameButton.innerText = "New Game";
+                const continuePlayingButton = document.querySelector('.continuePlayingButton');
+                continuePlayingButton.classList.add('endGame');
+                continuePlayingButton.addEventListener('click', resetGame);
             }
         }
     }
@@ -93,8 +123,16 @@ function checkLose() {
                 }
             }
         }
-        alert('Game Over!! Refresh the page to play again.')
-        document.removeEventListener('keyup', control)
+        document.removeEventListener("keyup", control);
+        document.querySelector('.overlayEndGame').classList.add('active');
+        document.querySelector('.boardConteiner').classList.add('endGame');
+        document.querySelector('.scoreConteiner').classList.add('endGame');
+        const messageGameOver = document.querySelector('.messageGameOver');
+        messageGameOver.classList.add('active');
+        messageGameOver.innerText = "Game Over";
+        const newGameButton = document.querySelector(".newGameButton");
+        newGameButton.classList.add('endGame');
+        newGameButton.innerText = "Play again?";
     }
 }
 
@@ -124,9 +162,6 @@ function control(event) {
         }
     }
 }
-
-document.addEventListener("keyup", control);
-document.querySelector(".newGameButton").addEventListener("click", restartGame);
 
 function rowsAreEquals(newRow, actualRow) {
     for (let i = 0; i < ROWS; i++) {
@@ -255,5 +290,7 @@ function moveLeft() {
     }
     return boardIsLocked;
 }
+
+
 
 
