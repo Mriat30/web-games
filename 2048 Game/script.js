@@ -31,6 +31,14 @@ function initializeGame() {
     generateTwo();
 }
 
+function restartGame() {
+    const boardElement = document.querySelector(".board");
+    while (boardElement.firstChild) {
+        boardElement.removeChild(boardElement.firstChild);
+    }
+    initializeGame();
+}
+
 function updateSquare(boardSquare, newSquareNumber) {
     boardSquare.innerText = "";
     boardSquare.classList.value = ""; //reseteo el valor de la clase
@@ -51,6 +59,7 @@ function updateScore(numberToAdd) {
     score += numberToAdd;
     scoreElement = document.querySelector(".score");
     scoreElement.innerText = `${score}`;
+    checkWin();
 }
 
 function generateTwo() {
@@ -62,36 +71,62 @@ function generateTwo() {
     let randomSquare = document.getElementById(`${randomRow},${randomColumn}`);
     updateSquare(randomSquare, 2);
     board[randomRow][randomColumn] = 2;
+    checkLose();
 }
 
-document.addEventListener("keyup", (e)=> {
-    if(e.key === "ArrowUp") {
+function checkWin() {
+    for (let row = 0; row < ROWS; row++) {
+        for (let column = 0; column < COLUMNS; column++) { 
+            if (board[row][column] === 2048) {
+                alert('Felicitaciones completaste el juego, puedes continuar jugando si asi lo deseas');
+            }
+        }
+    }
+}
+
+function checkLose() {
+    if (boardIsLocked()) {
+        for (let row = 0; row < ROWS; row++) {
+            for (let column = 0; column < COLUMNS; column++) {
+                if (board[row][column] === 0) {
+                    return;
+                }
+            }
+        }
+        alert('Game Over!! Refresh the page to play again.')
+        document.removeEventListener('keyup', control)
+    }
+}
+
+function control(event) {
+    if(event.key === "ArrowUp") {
         if(!moveUp()) {
             generateTwo();
             generateTwo();
         }
     }
-    if(e.key === "ArrowDown") {
+    if(event.key === "ArrowDown") {
         if(!moveDown()) {
             generateTwo();
             generateTwo();
         }
     }
-    if(e.key === "ArrowRight") {
+    if(event.key === "ArrowRight") {
         if(!moveRight()) {
             generateTwo();
             generateTwo();
         }
     }
-    if(e.key === "ArrowLeft") {
+    if(event.key === "ArrowLeft") {
         if(!moveLeft()) {
             generateTwo();
             generateTwo();
         }
-    }   
-});
+    }
+}
 
-document.querySelector(".newGameButton").addEventListener("click", initializeGame);
+document.addEventListener("keyup", control);
+document.querySelector(".newGameButton").addEventListener("click", restartGame);
 
 function rowsAreEquals(newRow, actualRow) {
     for (let i = 0; i < ROWS; i++) {
@@ -104,6 +139,28 @@ function rowsAreEquals(newRow, actualRow) {
 
 function filterZero(row) {
     return row.filter((r) => r != 0);
+}
+
+function boardIsLocked() {
+    for (let row = 0; row < board.length; row++) {
+        for (let col = 0; col < board[row].length; col++) {
+            if (board[row][col] !== 0) {
+                if (row > 0 && (board[row - 1][col] === 0 || board[row - 1][col] === board[row][col])) {
+                    return false; 
+                }
+                if (row < board.length - 1 && (board[row + 1][col] === 0 || board[row + 1][col] === board[row][col])) {
+                    return false; 
+                }
+                if (col > 0 && (board[row][col - 1] === 0 || board[row][col - 1] === board[row][col])) {
+                    return false; 
+                }
+                if (col < board[row].length - 1 && (board[row][col + 1] === 0 || board[row][col + 1] === board[row][col])) {
+                    return false; 
+                }
+            }
+        }
+    }
+    return true;
 }
 
 function getNewRow(row) {
@@ -123,7 +180,7 @@ function getNewRow(row) {
 }
 
 function moveUp() {
-    let boardIsBlocked = true;
+    let boardIsLocked = true;
     for (let col = 0; col < COLUMNS; col++) {
         let actualColumn = [];
         for (let row = 0; row < ROWS; row++) {
@@ -131,7 +188,7 @@ function moveUp() {
         }
         newColumn = getNewRow(actualColumn);
         if (!rowsAreEquals(newColumn, actualColumn)) {
-            boardIsBlocked = false;
+            boardIsLocked = false;
             for (let i = 0; i < ROWS; i++) {
                 let boardSquare = document.getElementById(`${i},${col}`);
                 board[i][col] = newColumn[i];
@@ -139,12 +196,12 @@ function moveUp() {
             }
         }
     }
-    return boardIsBlocked;
+    return boardIsLocked;
 }
 
 
 function moveDown() {
-    let boardIsBlocked = true;
+    let boardIsLocked = true;
     for (let col = 0; col < COLUMNS; col++) {
         let actualColumn = [];
         for (let row = 0; row < ROWS; row++) {
@@ -152,7 +209,7 @@ function moveDown() {
         }
         newColumn = getNewRow(actualColumn.reverse()).reverse();        
         if (!rowsAreEquals(newColumn, actualColumn)) {
-            boardIsBlocked = false;
+            boardIsLocked = false;
             for (let i = 0; i < ROWS; i++) {
                 let boardSquare = document.getElementById(`${i},${col}`);
                 board[i][col] = newColumn[i];
@@ -160,16 +217,16 @@ function moveDown() {
             }
         }
     }
-    return boardIsBlocked;
+    return boardIsLocked;
 }
 
 function moveRight() {
-    let boardIsBlocked = true;
+    let boardIsLocked = true;
     for (let row = 0; row < ROWS; row++) {
         let actualRow = board[row];
         newRow = getNewRow(actualRow.reverse()).reverse();
         if (!rowsAreEquals(newRow, actualRow)) {
-            boardIsBlocked = false;
+            boardIsLocked = false;
             for (let column = 0; column < COLUMNS; column++) {
                 let newSquareNumber = newRow[column];
                 let boardSquare = document.getElementById(`${row},${column}`);
@@ -178,16 +235,16 @@ function moveRight() {
             }
         }
     }
-    return boardIsBlocked;
+    return boardIsLocked;
 }
 
 function moveLeft() {
-    let boardIsBlocked = true;
+    let boardIsLocked = true;
     for (let row = 0; row < ROWS; row++) {
         let actualRow = board[row];
         newRow = getNewRow(actualRow);
         if (!rowsAreEquals(newRow, actualRow)) {
-            boardIsBlocked = false;
+            boardIsLocked = false;
             for (let column = 0; column < COLUMNS; column++) {
                 let newSquareNumber = newRow[column];
                 let boardSquare = document.getElementById(`${row},${column}`);
@@ -196,7 +253,7 @@ function moveLeft() {
             }
         }
     }
-    return boardIsBlocked;
+    return boardIsLocked;
 }
 
 

@@ -3,24 +3,30 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="boardStyle.css">
         <script src="script.js" defer></script>
     </head>
     <body>
-        <h1 class='titleGame'>
-            2048
-        </h1>
         <div class="newGameButtonContainer">
+            <h1 class='titleGame'>
+                2048
+            </h1>
             <h3 class='scoreConteiner'>
                 <div>Score</div>
                 <span class="score"></span>
             </h3>
             <button class="newGameButton">New Game</button>
         </div>
-        <div class='board'>
+        <div class="boardConteiner"> 
+            <div class='board'>
+            </div>
         </div>
         <footer class="footer">
             Mateo Riat All Rigths Reserved.
         </footer>
+        <div class="overlayEndGame hidden">
+            <button class="newGameButton">New Game</button>
+        </div>
     </body>
     
 </html>
