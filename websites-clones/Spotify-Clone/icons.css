@@ -1,0 +1,63 @@
+.spotify-icon {
+    height: 30px;
+    width: 30px;
+    color: rgb(0, 0, 0);
+    align-self: center;
+    justify-self: center;
+    padding-top: 4px;
+}
+.home-button svg {
+    fill: rgb(66, 65, 65);
+    stroke: rgb(206, 204, 204);
+    width: 24px;
+    stroke-width: 2;
+}
+
+.home-button {
+    width: 50px; 
+    height: 110%;
+    color: black;
+    border:rgb(51, 50, 50) ;
+    border-radius: 100px;
+    background-color: rgb(51, 50, 50);
+}
+
+
+.home-button:hover {
+    transform: scale(1.05);
+    cursor: pointer;    
+}
+
+.search-icon svg {
+    fill: rgb(206, 204, 204);
+}
+
+
+.search-icon {
+    height: 25px;
+    width: 25px;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+}
+
+.music-explorer-button svg {
+    fill: rgb(151, 151, 151);
+    stroke: inherit;
+    stroke-width: 0;
+    width: 24px;
+    border-left: solid rgb(134, 134, 134);
+    border-width: 1px;
+    padding-left: 10px;
+}
+
+.music-explorer-button {
+    background-color: inherit;
+    border: none;
+}
+
+.music-explorer-button svg:hover {
+    fill: rgb(201, 201, 201);;
+    transform: scale(1.05);
+    cursor: pointer;  
+}
