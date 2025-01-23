@@ -3,11 +3,12 @@
 
 body {
     font-family: "Rubik", sans-serif;
+    background-color: black;
 }
 
 .grid-conteiner {
     display: grid;
-    grid-template-columns: minmax(100px, 1fr) minmax(300px, 3fr) minmax(100px, 1fr);
+    grid-template-columns: minmax(30px, 1fr) minmax(300px, 3fr) minmax(100px, 1fr);
     grid-template-rows: minmax(48px,48px) 1fr minmax(10%, 10%);
     min-height: 100vh;
     grid-auto-flow: dense;
@@ -20,19 +21,16 @@ body {
 }
 
 header, nav, main, aside, footer {
-    border: 2px solid black;
-    padding: 20px;
+    border: 2px solid white;
+    color: white;
 }
 
 header {
     grid-area: header;
-    display: grid;
-    grid-template-columns: minmax(100px, 1fr) minmax(300px, 3fr) minmax(100px, 1fr);
+    display: flex;
     background-color: rgb(0, 0, 0);
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    align-content: center;
-    
 }
 
 main {
@@ -54,21 +52,21 @@ aside {
 
 .spotify-icon-conteiner {
     display: flex;
-    flex-shrink: 1;
-    min-width: 30px;
-    width: 100%;
+    align-items: center;
+    flex: 3 3 72px;
+    min-height: 72px;
+    padding: 15px;
 }
+
+
 
 
 .music-search-conteiner {
     display: flex;
     justify-content: center;
-    align-content: center;
-    align-items: center;
-    margin: 0 auto;
-    height: 100%;
-    width: 50%;
-    gap:2%;
+    gap: 5px;
+    flex: 1 0 300px;
+    max-height: 80%;
 }
 
 .home-button-conteiner {
@@ -82,9 +80,9 @@ aside {
     border-radius: 50%;
 }
 
+
 .music-search-input-conteiner {
     display: flex;
-    flex-direction: row;
     justify-content: start;
     align-items: center;
     margin: 0 auto;
@@ -96,7 +94,6 @@ aside {
     gap: 6px;
     outline: none;
     flex-grow: 1;
-    height: 40%;
 }
 
 .music-search-input-conteiner:hover {
@@ -105,7 +102,7 @@ aside {
 }
 
 .music-search-input-conteiner:focus-within {
-    border: solid white;
+    border: 2px solid white;
 }
 
 .music-search-input {
@@ -127,33 +124,47 @@ aside {
     
 }
 
-.install-app-conteiner {
+.user-conteiner {
     display: flex;
+    flex: 3 3 72px;
     justify-content: end;
     align-items: center;
-    margin: 0 auto;
-    flex-wrap: nowrap;
+}
+
+.install-app-conteiner {
+    display: flex;
+    color: rgb(206, 204, 204);
+    fill: rgb(206, 204, 204);
+    justify-content: center;
+    align-items: center;
+    transition:  0.1s;
+}
+
+.install-app-conteiner:hover {
+    scale: 1.1;
+    color: white;
+    fill: white;
 }
 
 .install-app-text {
-    color: white;
+    color: inherit;
     font-family: "Rubik";
-    font-size: 70%;
+    font-size: 65%;
     font-weight: bolder;
     white-space: nowrap;
 }
 
 .bell-icon-conteiner {
     display: flex;
-    justify-content: end;
+    justify-self: end;
     align-items: center;
-    min-height: 16px;
-    min-width: 16px;
+    min-height: 20px;
+    min-width: 20px;
 }
 
 .user-image-conteiner {
     display: flex;
-    min-width: 40px;
+    min-width:40px;
     min-height: 40px;
 }
 
@@ -161,16 +172,12 @@ aside {
     background-image: url(https://images.unsplash.com/photo-1736894739274-3e85a224f350?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
     background-position: center;
     width: 100%;
-    height: 30px;
     background-color: none;
     color: none;
     border: 5px solid rgb(51, 50, 50);
     border-radius: 50%;
 }
 
-@media (min-width: 1000px) {
-    
-}
 
 
 

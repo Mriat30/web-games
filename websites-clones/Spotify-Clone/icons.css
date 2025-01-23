@@ -1,6 +1,6 @@
 .spotify-icon {
-    height: 26px;
-    width: 26px;
+    height: 32px;
+    width: 32px;
     color: rgb(0, 0, 0);
     padding-top: 4px;
 }
@@ -51,8 +51,8 @@
 .music-explorer-button {
     background-color: inherit;
     border: none;
-    min-width: 28px;
-    min-height: 28px;
+    min-width: 20px;
+    max-height: 20px;
     margin-left: auto;
 }
 
@@ -63,18 +63,23 @@
 }
 
 .install-app-button svg{
-    fill: white;
-    width: 16px;
+
+    width: 12px;
+    padding-top: 4px;
 }
 
 .install-app-button {
     background-color: inherit;
     border: inherit;
+    color: inhe;
 }
 
 .bell-icon svg {
-    width: 16px;
-    fill: white;
+    display: flex;
+    width: 12px;
+    fill: rgb(206, 204, 204);
+    justify-content: end;
+    align-items: center;
 }
 
 .bell-icon {
@@ -82,5 +87,6 @@
     min-width:20px;
     background-color: inherit;
     border: none;
-    padding-right: 20px;
+    padding-left: 20px;
+    padding-right: 10px;
 }
