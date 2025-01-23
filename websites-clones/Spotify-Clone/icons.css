@@ -1,15 +1,10 @@
 .spotify-icon {
-    height: 32px;
-    width: 32px;
+    height: 26px;
+    width: 26px;
     color: rgb(0, 0, 0);
     padding-top: 4px;
 }
 
-.home-button svg {
-    fill: rgb(66, 65, 65);
-    stroke: rgb(206, 204, 204);
-    stroke-width: 2;
-}
 
 .home-button {
     min-width: 28px; 
@@ -20,13 +15,15 @@
     background-color: rgb(51, 50, 50);
 }
 
+.home-button svg {
+    fill: rgb(66, 65, 65);
+    stroke: rgb(206, 204, 204);
+    stroke-width: 2;
+}
+
 .home-button:hover {
     transform: scale(1.05);
     cursor: pointer;    
-}
-
-.search-icon svg {
-    fill: rgb(206, 204, 204);
 }
 
 
@@ -36,6 +33,19 @@
     align-self: center;
     justify-self: center;
     cursor: pointer;
+}
+
+.search-icon svg {
+    fill: rgb(206, 204, 204);
+}
+
+
+.music-explorer-button {
+    background-color: inherit;
+    border: none;
+    min-width: 20px;
+    max-height: 20px;
+    margin-left: auto;
 }
 
 .music-explorer-button svg {
@@ -48,18 +58,16 @@
     padding-left: 10px;
 }
 
-.music-explorer-button {
-    background-color: inherit;
-    border: none;
-    min-width: 20px;
-    max-height: 20px;
-    margin-left: auto;
-}
-
 .music-explorer-button svg:hover {
     fill: rgb(201, 201, 201);;
     transform: scale(1.05);
     cursor: pointer;  
+}
+
+.install-app-button {
+    background-color: inherit;
+    border: inherit;
+    color: inhe;
 }
 
 .install-app-button svg{
@@ -68,10 +76,13 @@
     padding-top: 4px;
 }
 
-.install-app-button {
+.bell-icon {
+    min-height:20px;
+    min-width:20px;
     background-color: inherit;
-    border: inherit;
-    color: inhe;
+    border: none;
+    padding-left: 20px;
+    padding-right: 10px;
 }
 
 .bell-icon svg {
@@ -82,11 +93,47 @@
     align-items: center;
 }
 
-.bell-icon {
+.library-icon {
     min-height:20px;
     min-width:20px;
     background-color: inherit;
+    padding-left: 15px;
     border: none;
-    padding-left: 20px;
-    padding-right: 10px;
+}
+
+.library-icon svg {
+    fill: rgb(173, 173, 173);
+    width: 20px;
+}
+
+.create-list-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:20px;
+    min-width:20px; 
+    background-color: black;
+    border: none; 
+    flex: 0 1 30px;
+}
+
+.create-list-icon svg{
+    fill: rgb(173, 173, 173);
+    width: 14px;
+}
+
+.plus-content-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:20px;
+    min-width:20px; 
+    background-color: black;
+    border: none; 
+    flex: 0 1 30px;
+}
+
+.plus-content-icon svg {
+    fill: rgb(173, 173, 173);
+    width: 14px;
 }

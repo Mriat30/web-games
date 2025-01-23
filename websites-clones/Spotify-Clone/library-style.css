@@ -1,0 +1,38 @@
+.library-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+}
+
+.library-conteiner {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex: 1 1 72px;
+    min-height: 40px;
+}
+
+.library-text {
+    font-size: small;
+    font-weight: 500;
+    white-space: nowrap;
+    color: rgb(173, 173, 173);
+}
+
+@media (max-width: 1200px) {
+    .plus-content-icon {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .create-list-icon {
+        display: none;
+    }
+
+    .library-text {
+        display: none;
+    }
+
+}
