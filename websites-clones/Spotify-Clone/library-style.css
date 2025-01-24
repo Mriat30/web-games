@@ -1,3 +1,12 @@
+.library-nav {
+    display: flex;
+    flex-direction: column;
+    background-color:  rgb(31, 30, 30); 
+    margin: 6px;
+    border-radius: 19px;
+    padding: 6px;
+}
+
 .library-header {
     display: flex;
     justify-content: space-between;
@@ -20,10 +29,28 @@
     color: rgb(173, 173, 173);
 }
 
+.filter-tickets {
+    display: flex;
+    gap: 6px;
+    padding-left: 10px;
+}
+
+.filter-tickets-item {
+    border-radius: 14px;
+    padding: 8px;
+    background-color: rgb(68, 68, 68);
+    color: rgb(218, 218, 218);
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    font-size:x-small;
+}
+
 @media (max-width: 1200px) {
     .plus-content-icon {
         display: none;
     }
+
 }
 
 @media (max-width: 1024px) {
@@ -32,6 +59,10 @@
     }
 
     .library-text {
+        display: none;
+    }
+
+    .filter-tickets {
         display: none;
     }
 

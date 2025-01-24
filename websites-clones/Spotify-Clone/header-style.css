@@ -1,25 +1,25 @@
+.search-header {
+    padding: 6px;
+}
+
 .spotify-icon-conteiner {
     display: flex;
     align-items: center;
     flex: 3 3 72px;
-    min-height: 72px;
     padding: 15px;
 }
-
 
 .music-search-conteiner {
     display: flex;
     justify-content: center;
     gap: 5px;
     flex: 1 0 300px;
-    max-height: 80%;
 }
 
 .home-button-conteiner {
     display: flex;
     justify-content: center;
     align-items: center;
-    align-content: center;
     min-width: 35px;
     min-height: 35px;
     background-color: rgb(51, 50, 50);

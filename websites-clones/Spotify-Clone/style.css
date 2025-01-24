@@ -6,6 +6,8 @@ body {
     background-color: black;
 }
 
+
+
 .grid-conteiner {
     display: grid;
     grid-template-columns: minmax(30px, 1.1fr) minmax(300px, 3fr) minmax(100px, 1.1fr);
@@ -43,7 +45,6 @@ nav {
 
 footer {
     grid-area: footer;
-
 }
 
 aside {
